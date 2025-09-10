@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PlotFigure from "../components/PlotFigure.astro";
+import * as Plot from "@observablehq/plot";
+import penguins from "../assets/penguins.json";
+
+---
+<Layout>
+	<h1 class="text-2xl mb-4">Slider de graphiques Penguins</h1>
+	<nav class="mb-6">
+		<ul class="flex gap-6">
+            <li><a href= "/" class="underline text-blue-600">Accueil</a></li>
+			<li><a href="#graph-adelie" class="underline text-blue-600">Adelie</a></li>
+			<li><a href="#graph-chinstrap" class="underline text-blue-600">Chinstrap</a></li>
+			<li><a href="#graph-gentoo" class="underline text-blue-600">Gentoo</a></li>
+		</ul>
+	</nav>
+	<div class="slider flex overflow-x-auto gap-8 pb-8" style="scroll-behavior:smooth;">
+		<section id="graph-adelie" class="min-w-[400px] flex-shrink-0">
+			<h2 class="text-xl mb-2">Adelie</h2>
+            <PlotFigure options={{marks: [
+        Plot.dot(penguins.filter(({species})=>species==="Adelie"), {
+          x: "culmen_length_mm",
+          y: "culmen_depth_mm",
+          stroke: "species",
+        }),
+      ],
+    }}
+  />
+		</section>
+		<section id="graph-chinstrap" class="min-w-[400px] flex-shrink-0">
+			<h2 class="text-xl mb-2">Chinstrap</h2>
+			<PlotFigure options={{marks: [
+        Plot.dot(penguins.filter(({species})=>species==="Chinstrap"), {
+          x: "culmen_length_mm",
+          y: "culmen_depth_mm",
+          stroke: "species",
+        }),
+      ],
+    }}
+  />
+		</section>
+		<section id="graph-gentoo" class="min-w-[400px] flex-shrink-0">
+			<h2 class="text-xl mb-2">Gentoo</h2>
+			<PlotFigure options={{marks: [
+        Plot.dot(penguins.filter(({species})=>species==="Gentoo"), {
+          x: "culmen_length_mm",
+          y: "culmen_depth_mm",
+          stroke: "species",
+        }),
+      ],
+    }}
+  />
+		</section>
+	</div>
+</Layout>

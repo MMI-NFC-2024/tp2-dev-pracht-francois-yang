@@ -5,14 +5,13 @@ import Layout from "../layouts/Layout.astro";
 <Layout>
   <h1 class="text-2xl">Test iframe</h1>
   <nav class="mb-4">
-    <ul class="flex gap-4">
-        <li><a href="/" class="underline text-blue-600">Accueil</a></li>
-        <li><a href="/species/Adelie" target="iframeAdelie" class="underline text-blue-600">Adelie</a></li>
-        <li><a href="/species/Chinstrap" target="iframeChinstrap" class="underline text-blue-600">Chinstrap</a></li>
-        <li><a href="/species/Gentoo" target="iframeGentoo" class="underline text-blue-600">Gentoo</a></li>
-    </ul>
+  <ul class="flex gap-4">
+    <li><a href="/" class="underline text-blue-600">Accueil</a></li>
+    <li><a href="/species/Adelie" target="iframeMain" class="underline text-blue-600">Adelie</a></li>
+    <li><a href="/species/Chinstrap" target="iframeMain" class="underline text-blue-600">Chinstrap</a></li>
+    <li><a href="/species/Gentoo" target="iframeMain" class="underline text-blue-600">Gentoo</a></li>
+  </ul>
   </nav>
-  <h2 class="text-xl mt-8 mb-2">Iframe principale (Adelie par défaut)</h2>
   <iframe
     name="iframeMain"
     id="iframeMain"
