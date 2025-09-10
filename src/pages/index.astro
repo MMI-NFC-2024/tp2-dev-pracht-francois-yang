@@ -6,16 +6,6 @@ import penguins from "../assets/penguins.json";
 ---
 
 <Layout>
-  <h1 class="text-2xl">Test Astro et Plot (Observablehq)</h1>
-  <PlotFigure
-    options={{
-      marks: [
-        Plot.dot(penguins, {
-          x: "culmen_length_mm",
-          y: "culmen_depth_mm",
-          stroke: "species",
-        }),
-      ],
-    }}
-  />
+  <h1 class="text-2xl">Les pages iframes</h1>
+  <a href="/test-iframe" class="text-blue-500 underline">Voir les manchots en iframe</a>
 </Layout>

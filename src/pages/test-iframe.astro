@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <h1 class="text-2xl">Test iframe</h1>
+  <nav class="mb-4">
+    <ul class="flex gap-4">
+        <li><a href="/" class="underline text-blue-600">Accueil</a></li>
+        <li><a href="/species/Adelie" target="iframeAdelie" class="underline text-blue-600">Adelie</a></li>
+        <li><a href="/species/Chinstrap" target="iframeChinstrap" class="underline text-blue-600">Chinstrap</a></li>
+        <li><a href="/species/Gentoo" target="iframeGentoo" class="underline text-blue-600">Gentoo</a></li>
+    </ul>
+  </nav>
+  <h2 class="text-xl mt-8 mb-2">Iframe principale (Adelie par défaut)</h2>
+  <iframe
+    name="iframeMain"
+    id="iframeMain"
+    src="/species/Adelie"
+    style="height: 510px;"
+    class="w-full border-2 border-black mb-4"
+    title="Iframe principale"
+    onload="frame(this)"
+  ></iframe>
+  <script>
+    function frame(iframe: HTMLIFrameElement) {
+      try {
+        if (iframe.contentWindow.document.body) {
+          iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        }
+      } catch (e) {
+        // Cross-origin protection
+        iframe.style.height = '510px';
+      }
+    }
+  </script>
+</Layout>

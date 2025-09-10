@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import PlotFigure from '../../components/PlotFigure.astro'
+import * as Plot from "@observablehq/plot";
+import penguins from "../../assets/penguins.json";
+
+ const penguinsAdelie = penguins.filter(({species})=>species==="Adelie")
+---
+
+<Layout>
+  <h1 class="text-2xl">Test Astro et Plot (Observablehq)</h1>
+  <PlotFigure
+    options={{
+      marks: [
+        Plot.dot(penguinsAdelie, {
+          x: "culmen_length_mm",
+          y: "culmen_depth_mm",
+          stroke: "species",
+        }),
+      ],
+    }}
+  />
+  <a href="/" class="text-blue-500 underline">Retour à l'accueil</a>
+  <br />
+  <a href="/species/Chinstrap" class="text-blue-500 underline">Voir les manchots Chinstrap</a>
+    <br />
+    <a href="/species/Gentoo" class="text-blue-500 underline">Voir les manchots Gentoo</a>
+</Layout>
